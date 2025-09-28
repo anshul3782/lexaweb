@@ -33,7 +33,8 @@ function App() {
       'wen': 'when', 'recieve': 'receive', 'seperate': 'separate', 'definately': 'definitely',
       'occured': 'occurred', 'begining': 'beginning', 'neccessary': 'necessary',
       'beleive': 'believe', 'accomodate': 'accommodate', 'embarass': 'embarrass',
-      'priviledge': 'privilege', 'acheive': 'achieve', 'calender': 'calendar'
+      'priviledge': 'privilege', 'acheive': 'achieve', 'calender': 'calendar',
+      'thier': 'their', 'becuase': 'because', 'untill': 'until', 'thru': 'through'
     }
     
     if (lastWord && corrections[lastWord]) {
@@ -135,13 +136,11 @@ function App() {
         'existance': 'existence', 'maintainance': 'maintenance', 'occassion': 'occasion',
         'thier': 'their', 'alot': 'a lot', 'becuase': 'because', 'untill': 'until',
         'thru': 'through', 'lite': 'light', 'nite': 'night', 'rite': 'right',
-        'rite': 'write', 'loose': 'lose', 'loose': 'loose', 'its': "it's",
-        'your': "you're", 'there': "they're", 'to': 'too', 'to': 'two',
+        'loose': 'lose', 'its': "it's", 'your': "you're", 'there': "they're",
         'here': 'hear', 'no': 'know', 'new': 'knew', 'wear': 'where',
         'weather': 'whether', 'peace': 'piece', 'plain': 'plane', 'sale': 'sail',
-        'see': 'sea', 'sight': 'site', 'sight': 'cite', 'son': 'sun',
-        'tail': 'tale', 'their': 'there', 'threw': 'through', 'to': 'too',
-        'weak': 'week', 'wood': 'would', 'write': 'right', 'your': "you're"
+        'see': 'sea', 'sight': 'site', 'son': 'sun', 'tail': 'tale', 
+        'threw': 'through', 'weak': 'week', 'wood': 'would', 'write': 'right'
       }
       
       const cleanWord = word.toLowerCase().replace(/[^\w]/g, '')
@@ -222,7 +221,11 @@ function App() {
           const lastWord = currentWords[currentWords.length - 1]?.toLowerCase() || ''
           const corrections = {
             'teh': 'the', 'adn': 'and', 'taht': 'that', 'wht': 'what', 'wher': 'where',
-            'wen': 'when', 'recieve': 'receive', 'seperate': 'separate', 'definately': 'definitely'
+            'wen': 'when', 'recieve': 'receive', 'seperate': 'separate', 'definately': 'definitely',
+            'occured': 'occurred', 'begining': 'beginning', 'neccessary': 'necessary',
+            'beleive': 'believe', 'accomodate': 'accommodate', 'embarass': 'embarrass',
+            'priviledge': 'privilege', 'acheive': 'achieve', 'calender': 'calendar',
+            'thier': 'their', 'becuase': 'because', 'untill': 'until', 'thru': 'through'
           }
           
           if (corrections[lastWord]) {
@@ -333,7 +336,7 @@ function App() {
             autoComplete="nope"
             spellCheck="false"
           />
-        </div>
+      </div>
 
         {/* Background change button */}
         <button className="bg-btn" onClick={changeBackground} title="Change Background">
