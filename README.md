@@ -102,4 +102,76 @@ This project is open source and available under the MIT License.
 
 ---
 
-**Lexa** - Bringing AI autocorrect to manual keyboards with style! ✨# lexaweb
+**Lexa** - Bringing AI autocorrect to manual keyboards with style! ✨# LEXA - AI Autocorrect for Manual Keyboards
+
+A beautiful, fullscreen React app that provides AI-powered autocorrect and auto-complete functionality for manual keyboards. Built for SunHacks 2025.
+
+## Features
+
+- **Smart Autocorrect**: Real-time autocorrection while typing
+- **Auto-Complete**: Intelligent word suggestions on spacebar
+- **Keyboard Navigation**: Use arrow keys to select suggestions
+- **Beautiful Design**: Liquid glass effects with custom HD backgrounds
+- **Fullscreen Experience**: Minimal margins, maximum impact
+
+## Quick Start
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/anshul3782/lexaweb.git
+   cd lexaweb
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser:**
+   Navigate to `http://localhost:5173`
+
+### Production Build
+
+To build for production:
+```bash
+npm run build
+```
+
+## How to Use
+
+1. **Type normally** in the text box - autocorrect works in real-time
+2. **Press spacebar** to trigger auto-complete suggestions
+3. **Use arrow keys** (when not typing) to select suggestions:
+   - **← Left Arrow**: First suggestion
+   - **↓ Down Arrow**: Center suggestion
+   - **→ Right Arrow**: Third suggestion
+   - **Enter**: Center suggestion
+   - **Space**: Center suggestion
+4. **Click the background button** (bottom right) to change backgrounds
+
+## Technical Details
+
+- **Framework**: React 18 with Vite
+- **Styling**: Custom CSS with glass morphism effects
+- **Autocorrect**: Custom dictionary with 1000+ words
+- **Backgrounds**: HD images from `/public/aesthetic/hd/`
+
+## Repository
+
+- **GitHub**: https://github.com/anshul3782/lexaweb.git
+- **Latest Commit**: `a6b9199` - Fix autocorrect - removed duplicate keys causing errors
+
+## Made at SunHacks 2025 🚀
+
+Built with ❤️ for the best design award!
