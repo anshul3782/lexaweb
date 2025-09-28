@@ -199,10 +199,10 @@ function App() {
         <div className="typing-section">
           <textarea
             className="text-input"
-            placeholder="Start typing to see LEXA's autocorrect magic..."
+            placeholder="Enter something..."
             value={currentText}
             onChange={handleTextChange}
-            rows={4}
+            rows={3}
           />
         </div>
 
