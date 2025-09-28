@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import './App.css'
 
 function App() {
@@ -105,7 +105,7 @@ function App() {
     setSelectedSuggestion(0)
   }
 
-  const applySuggestion = (index) => {
+  const applySuggestion = useCallback((index) => {
     if (suggestions[index]) {
       const suggestionToApply = suggestions[index]
       let newText
@@ -131,7 +131,61 @@ function App() {
       setSuggestions(newSuggestions)
       setSelectedSuggestion(0)
     }
-  }
+  }, [suggestions, currentText])
+
+  // Keyboard event handler - only when NOT typing in text box
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      // Only handle arrow keys if we're NOT focused on the text input
+      const isTypingInBox = document.activeElement?.tagName === 'TEXTAREA'
+      
+      if (isTypingInBox) {
+        // Allow normal typing in the text box - don't interfere
+        return
+      }
+      
+      console.log('Key pressed outside text box:', event.key)
+      
+      switch(event.key) {
+        case 'ArrowLeft':
+          event.preventDefault()
+          console.log('Left arrow pressed - applying suggestion 0')
+          applySuggestion(0)
+          break
+        case 'ArrowDown':
+          event.preventDefault()
+          console.log('Down arrow pressed - applying suggestion 1')
+          applySuggestion(1)
+          break
+        case 'ArrowRight':
+          event.preventDefault()
+          console.log('Right arrow pressed - applying suggestion 2')
+          applySuggestion(2)
+          break
+        case 'Enter':
+          event.preventDefault()
+          console.log('Enter pressed - applying suggestion 1 (center)')
+          applySuggestion(1)
+          break
+        case ' ':
+          event.preventDefault()
+          console.log('Space pressed - applying suggestion 1 (center)')
+          applySuggestion(1)
+          break
+        default:
+          // Allow normal typing
+          break
+      }
+    }
+
+    // Add event listener
+    document.addEventListener('keydown', handleKeyPress)
+    
+    // Cleanup
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [applySuggestion])
 
   const changeBackground = () => {
     const currentIndex = backgroundImages.indexOf(backgroundImage)
@@ -175,21 +229,27 @@ function App() {
                 <button 
                   className="key-btn left-key" 
                   onClick={() => applySuggestion(0)}
+                  title="Left Arrow Key"
                 >
                   ←
                 </button>
                 <button 
                   className="key-btn center-key" 
                   onClick={() => applySuggestion(1)}
+                  title="Down Arrow, Enter, or Space"
                 >
                   ↓
                 </button>
                 <button 
                   className="key-btn right-key" 
                   onClick={() => applySuggestion(2)}
+                  title="Right Arrow Key"
                 >
                   →
                 </button>
+              </div>
+              <div className="keyboard-hint">
+                Use ← ↓ → arrow keys, Enter, or Space to apply suggestions
               </div>
             </div>
           </div>
